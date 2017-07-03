@@ -38,21 +38,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         String str1 = num1.getText().toString();
-        int int1 = Integer.parseInt(str1);
+        double double1 = Double.parseDouble(str1);
 
         String str2 = num2.getText().toString();
-        int int2 = Integer.parseInt(str2);
+        double double2 = Double.parseDouble(str2);
 
         Intent intent = new Intent(this, ResultActivity.class);
 
         if(v.getId() == R.id.calBtn1) {
-            intent.putExtra("VALUE", int1 + int2);
+            intent.putExtra("VALUE", double1 + double2);
         } else if (v.getId() == R.id.calBtn2) {
-            intent.putExtra("VALUE", int1 - int2);
+            intent.putExtra("VALUE", double1 - double2);
         } else if (v.getId() == R.id.calBtn3) {
-            intent.putExtra("VALUE", int1 * int2);
+            intent.putExtra("VALUE", double1 * double2);
         } else if (v.getId() == R.id.calBtn4) {
-            intent.putExtra("VALUE", int1 / int2);
+            if (double2 == 0) {
+                return;
+            } else {
+                intent.putExtra("VALUE", double1 / double2);
+            }
+
         }
 
         startActivity(intent);

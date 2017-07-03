@@ -13,7 +13,7 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         Intent intent = getIntent();
-        int value = intent.getIntExtra("VALUE", 0);
+        double value = intent.getDoubleExtra("VALUE", 0);
 
 
         TextView textView = (TextView) findViewById(R.id.textView);
